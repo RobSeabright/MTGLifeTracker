@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RollDice" />
+        <activity android:name=".AppSettings" />
     </application>
 
 </manifest>
