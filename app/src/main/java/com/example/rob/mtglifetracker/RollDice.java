@@ -17,7 +17,10 @@ public class RollDice extends AppCompatActivity {
 
     final Random rnd = new Random();
 
-
+    /**
+     * Creates a diceroll view
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +30,12 @@ public class RollDice extends AppCompatActivity {
         final ImageView diceRoll = findViewById(R.id.diceRoll);
         Button reroll = findViewById(R.id.rerollButton);
 
-        String dice = "dice" + rnd.nextInt(5);
+        //Appends 0-5 randomly to the string dice which corresponds to the 6 dice drawable images
+        final String dice = "dice" + rnd.nextInt(5);
+        //Sets the dice image to the appropriate face using the getResourceID method
         diceRoll.setImageDrawable(getResources().getDrawable(getResourceID(dice, getApplicationContext())));
 
+        //rerolls the dice.
         reroll.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -40,8 +46,12 @@ public class RollDice extends AppCompatActivity {
         });
     }
 
-
-
+    /**
+     * Returns a resource ID using the resource's name.
+     * @param resName
+     * @param ctx
+     * @return
+     */
     protected static int getResourceID(final String resName, final Context ctx) {
         final int ResourceID = ctx.getResources().getIdentifier(resName, "drawable",
                 ctx.getApplicationInfo().packageName);

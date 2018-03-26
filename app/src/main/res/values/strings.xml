@@ -80,4 +80,6 @@
     <string name="green">Green</string>
     <string name="red">Red</string>
     <string name="white">White</string>
+    <string name="p1Background">Player 1 Background:</string>
+    <string name="p2Background">Player 2 Background:</string>
 </resources>

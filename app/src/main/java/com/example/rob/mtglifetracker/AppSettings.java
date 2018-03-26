@@ -12,37 +12,36 @@ import android.widget.RadioGroup;
 
 public class AppSettings extends Activity {
 
-    private RadioGroup background;
+    private RadioGroup player1Background;
+    private RadioGroup player2Background;
 
+    /**
+     * Creates the settings view
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.appsettings);
-        background = findViewById(R.id.backgrounds);
-
+        player1Background = findViewById(R.id.player1Backgrounds);
+        player2Background = findViewById(R.id.player2Backgrounds);
     }
 
+    /**
+     * Sends the user back to the main activity storing the selection of background images
+     */
     public void onBackPressed() {
         Intent i = new Intent();
-        String selected = "blue_mana";
-        int radioId = background.getCheckedRadioButtonId();
-        View radioButton = background.findViewById(radioId);
-        int index = background.indexOfChild(radioButton);
+        int p1RadioId = player1Background.getCheckedRadioButtonId();
+        View p1RadioButton = player1Background.findViewById(p1RadioId);
+        int p1Index = player1Background.indexOfChild(p1RadioButton);
 
-        switch (index) {
-            case (0): selected = "black_mana";
-                break;
-            case (1): selected = "blue_mana";
-                break;
-            case (2): selected = "green_mana";
-                break;
-            case (3): selected = "red_mana";
-                break;
-            case (4): selected = "white_mana";
-                break;
-        }
+        int p2RadioId = player2Background.getCheckedRadioButtonId();
+        View p2RadioButton = player2Background.findViewById(p2RadioId);
+        int p2Index = player2Background.indexOfChild(p2RadioButton);
 
-        i.putExtra("background", selected);
+        i.putExtra("player1Background", p1Index);
+        i.putExtra("player2Background", p2Index);
         setResult(RESULT_OK, i);
         finish();
     }
