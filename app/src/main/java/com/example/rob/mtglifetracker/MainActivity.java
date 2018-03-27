@@ -44,9 +44,8 @@ public class MainActivity extends AppCompatActivity {
         ImageButton rollDice = findViewById(R.id.diceButton);
         ImageButton settings = findViewById(R.id.settingsButton);
 
-        /**
-         * Used to set play life totals on button clicks
-         */
+
+        //Used to set play life totals on button clicks
         player1Plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,9 +78,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /**
-         * Resets each player's life back to the staring total of 20
-         */
+
+        //Resets each player's life back to the staring total of 20
         resetLife.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,9 +91,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /**
-         * Pops up a dice roller and rolls a dice.
-         */
+
+        //Pops up a dice roller and rolls a dice.
         rollDice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,9 +100,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /**
-         * Pops up app settings view so player's can change their background
-         */
+        //Pops up app settings view so player's can change their background
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,6 +187,8 @@ public class MainActivity extends AppCompatActivity {
 
         player1Life = savedInstanceState.getInt("player1Life");
         player2Life = savedInstanceState.getInt("player2Life");
+        player1LifeView.setText(String.valueOf(player1Life));
+        player2LifeView.setText(String.valueOf(player2Life));
         player1Image = savedInstanceState.getInt("player1Image");
         player2Image = savedInstanceState.getInt("player2Image");
         setBackground();
